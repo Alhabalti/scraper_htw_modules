@@ -1,4 +1,4 @@
-Markdown
+```markdown
 # HTW Berlin Modules Scraper 🎓💻
 
 A robust Python automation script built to systematically extract all degree programs (Studiengänge) and their corresponding study modules (courses) from the official [HTW Berlin website](https://www.htw-berlin.de/). The script navigates dynamic web pages, locates the official Study and Examination Regulations (StPO) PDF files, extracts the module names directly from the PDF tables, and compiles a clean, structured JSON database.
@@ -21,21 +21,27 @@ Before running this script, ensure you have the following installed:
 
 ```bash
 pip install selenium pdfplumber requests
-🚀 Usage
-Clone this repository to your local machine.
 
-Navigate to the project directory.
+```
 
-Run the script:
+## 🚀 Usage
 
-Bash
+1. Clone this repository to your local machine.
+2. Navigate to the project directory.
+3. Run the script:
+
+```bash
 python scraper.py
-Note: The script runs with the browser visible (detach: True) by default to allow manual handling of Cookie consent banners if they block navigation. You can change it to --headless in the webdriver.ChromeOptions() for background execution.
 
-📂 Output Structure
-Once the script completes execution, it generates a file named htw_modules.json in the root directory. The JSON structure looks like this:
+```
 
-JSON
+*Note: The script runs with the browser visible (`detach: True`) by default to allow manual handling of Cookie consent banners if they block navigation. You can change it to `--headless` in the `webdriver.ChromeOptions()` for background execution.*
+
+## 📂 Output Structure
+
+Once the script completes execution, it generates a file named `htw_modules.json` in the root directory. The JSON structure looks like this:
+
+```json
 [
     {
         "fachbereich": "Not specified",
@@ -50,12 +56,19 @@ JSON
     },
     ...
 ]
-⚠️ Important Notes
-Execution Time: The script visits over 80 program pages, downloads PDFs, and parses tables. It may take between 5 to 10 minutes to complete.
 
-Website Structure Changes: This script relies on the current HTML structure and CSS classes of the HTW Berlin website. If the university significantly updates its UI, the CSS selectors in the script may need adjustment.
+```
 
-PDF Layout Variations: Module extraction assumes the module names are located in the second column (row[1]) of the PDF tables, which is the standard format for most HTW StPO documents. Edge cases with different table structures might require manual addition or script adjustments.
+## ⚠️ Important Notes
 
-📄 License
-This project is open-source and available under the MIT License.
+* **Execution Time:** The script visits over 80 program pages, downloads PDFs, and parses tables. It may take between 5 to 10 minutes to complete.
+* **Website Structure Changes:** This script relies on the current HTML structure and CSS classes of the HTW Berlin website. If the university significantly updates its UI, the CSS selectors in the script may need adjustment.
+* **PDF Layout Variations:** Module extraction assumes the module names are located in the second column (`row[1]`) of the PDF tables, which is the standard format for most HTW StPO documents. Edge cases with different table structures might require manual addition or script adjustments.
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](https://www.google.com/search?q=LICENSE).
+
+```
+
+```
